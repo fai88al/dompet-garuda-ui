@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Security() {
   return (
-    <section id="keamanan" className="scroll-mt-16 border-b border-border">
+    <section id="keamanan" data-tint="sand" className="scroll-mt-16 border-b border-border">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
           <SectionHeading

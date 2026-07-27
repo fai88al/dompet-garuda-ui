@@ -75,6 +75,7 @@
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #5d7066;
+  --tint: 0;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

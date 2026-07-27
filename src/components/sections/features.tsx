@@ -24,7 +24,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="border-b border-border">
+    <section data-tint="neutral" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Keunggulan"
