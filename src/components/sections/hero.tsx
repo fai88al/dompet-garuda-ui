@@ -2,9 +2,9 @@
 
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useGsapReveal, useMagnetic } from "@/lib/motion";
+import { useGsapReveal, useMagnetic, REVEAL_INITIAL_STYLE } from "@/lib/motion";
 
-const chips = ["Bluetooth Mesh", "Ed25519 Signed", "Zero Signal Required"];
+const chips = ["Jaringan Bluetooth", "Ditandatangani Ed25519", "Tanpa Perlu Sinyal"];
 
 export function Hero() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -18,11 +18,11 @@ export function Hero() {
   return (
     <section data-tint="sage" className="border-b border-border">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:py-28 lg:px-8">
-        <div ref={contentRef}>
+        <div ref={contentRef} style={REVEAL_INITIAL_STYLE}>
           <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
             ✱ Bayar di mana saja, tanpa sinyal.
           </p>
-          <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-8xl">
+          <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl xl:text-8xl">
             Transfer tanpa internet, aman tanpa ribet.
           </h1>
           <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">

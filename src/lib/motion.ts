@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, type RefObject } from "react";
+import { useEffect, type RefObject, type CSSProperties } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+export const REVEAL_INITIAL_STYLE: CSSProperties = {
+  opacity: 0,
+  transform: "translateY(16px)",
+};
 
 interface RevealOptions {
   /** CSS selector for children to animate individually; omit to animate the container itself. */
