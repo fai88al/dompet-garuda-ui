@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { NodeNetwork } from "@/components/shared/node-network";
+import { GrainOverlay } from "@/components/shared/grain-overlay";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NodeNetwork />
+          <GrainOverlay />
           <Nav />
           {children}
         </ThemeProvider>
