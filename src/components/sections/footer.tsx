@@ -31,7 +31,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer>
+    <footer data-tint="neutral">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           <div className="col-span-2 sm:col-span-1">

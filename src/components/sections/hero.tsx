@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="border-b border-border">
+    <section data-tint="sage" className="border-b border-border">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:py-28 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

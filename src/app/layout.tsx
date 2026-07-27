@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { NodeNetwork } from "@/components/shared/node-network";
 import { GrainOverlay } from "@/components/shared/grain-overlay";
+import { TintDriver } from "@/components/shared/tint-driver";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
         >
           <NodeNetwork />
           <GrainOverlay />
+          <TintDriver />
           <Nav />
           {children}
         </ThemeProvider>
