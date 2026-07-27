@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import { getPublishedArticles } from "@/lib/api";
 import { ArticleCard } from "@/components/shared/article-card";
+import { SITE_URL } from "@/lib/site";
+
+const title = "Artikel — Dompet Digital";
+const description =
+  "Wawasan dan cerita seputar teknologi pembayaran offline Dompet Digital.";
 
 export const metadata: Metadata = {
-  title: "Artikel — Dompet Digital",
-  description:
-    "Wawasan dan cerita seputar teknologi pembayaran offline Dompet Digital.",
+  title,
+  description,
+  alternates: { canonical: `${SITE_URL}/articles` },
+  openGraph: {
+    title,
+    description,
+    url: `${SITE_URL}/articles`,
+    type: "website",
+  },
 };
 
 export default async function ArticlesPage() {

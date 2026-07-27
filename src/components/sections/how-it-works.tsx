@@ -27,11 +27,12 @@ const steps = [
 export function HowItWorks() {
   return (
     <motion.section
+      id="cara-kerja"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="border-b border-border"
+      className="scroll-mt-16 border-b border-border"
     >
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading

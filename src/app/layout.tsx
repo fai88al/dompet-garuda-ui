@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,10 +15,21 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const title = "Dompet Digital — Transfer tanpa internet, aman tanpa ribet";
+const description =
+  "Dompet Digital memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.";
+
 export const metadata: Metadata = {
-  title: "Dompet Digital — Transfer tanpa internet, aman tanpa ribet",
-  description:
-    "Dompet Digital memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.",
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    siteName: "Dompet Digital",
+    locale: "id_ID",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getArticleBySlug } from "@/lib/api";
 import { excerpt, formatDate } from "@/lib/utils";
+import { SITE_URL } from "@/lib/site";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
@@ -23,9 +24,11 @@ export async function generateMetadata({
   return {
     title: `${article.title} — Dompet Digital`,
     description,
+    alternates: { canonical: `${SITE_URL}/articles/${article.slug}` },
     openGraph: {
       title: article.title,
       description,
+      url: `${SITE_URL}/articles/${article.slug}`,
       images: article.coverImageUrl ? [article.coverImageUrl] : undefined,
       type: "article",
       publishedTime: article.publishedAt,
