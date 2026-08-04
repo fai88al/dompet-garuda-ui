@@ -10,15 +10,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: article.updatedAt,
   }));
 
-  return [
-    {
-      url: SITE_URL,
-      lastModified: new Date(),
-    },
-    {
-      url: `${SITE_URL}/articles`,
-      lastModified: new Date(),
-    },
-    ...articleEntries,
+  const staticRoutes = [
+    "",
+    "/articles",
+    "/dokumentasi",
+    "/faq",
+    "/kontak",
+    "/tentang-kami",
+    "/kebijakan-privasi",
   ];
+
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
+    url: `${SITE_URL}${route}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticEntries, ...articleEntries];
 }
