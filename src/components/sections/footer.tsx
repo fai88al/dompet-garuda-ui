@@ -12,16 +12,16 @@ const columns = [
   {
     heading: "Sumber Daya",
     links: [
-      { label: "Dokumentasi", href: "#" },
-      { label: "FAQ", href: "#" },
-      { label: "Kontak", href: "#" },
+      { label: "Dokumentasi", href: "/dokumentasi" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Kontak", href: "/kontak" },
     ],
   },
   {
     heading: "Perusahaan",
     links: [
-      { label: "Tentang Kami", href: "#" },
-      { label: "Kebijakan Privasi", href: "#" },
+      { label: "Tentang Kami", href: "/tentang-kami" },
+      { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
     ],
   },
 ];
