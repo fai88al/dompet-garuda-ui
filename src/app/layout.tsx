@@ -55,7 +55,7 @@ export default function RootLayout({
           <GrainOverlay />
           <TintDriver />
           <Nav />
-          {children}
+          <div className="flex flex-1 flex-col pt-16">{children}</div>
         </ThemeProvider>
       </body>
     </html>
