@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useGsapReveal, useMagnetic, REVEAL_INITIAL_STYLE } from "@/lib/motion";
 
-const chips = ["Jaringan Bluetooth", "Ditandatangani Ed25519", "Tanpa Perlu Sinyal"];
+const chips = ["Bluetooth Connection", "Ed25519 Signed", "Tanpa Perlu Sinyal"];
 
 export function Hero() {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ export function Hero() {
             Transfer tanpa internet, aman tanpa ribet.
           </h1>
           <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
-            Dompet Digital memungkinkan transaksi langsung antar perangkat
+            Dompet Garuda memungkinkan transaksi langsung antar perangkat
             lewat Bluetooth — bahkan saat tidak ada koneksi internet sama
             sekali.
           </p>
@@ -52,9 +53,16 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* TODO: replace with generated asset — market vendor offline transfer scene */}
         <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-accent/30 bg-card/40 backdrop-blur-xl">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 dark:from-primary/20 dark:via-accent/15 dark:to-background" />
+          <Image
+            src="/images/hero.png"
+            alt="Perangkat Dompet Garuda digunakan untuk transaksi offline langsung antar perangkat"
+            fill
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent mix-blend-overlay" />
         </div>
       </div>
     </section>

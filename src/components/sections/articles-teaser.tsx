@@ -13,7 +13,7 @@ export async function ArticlesTeaser() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             eyebrow="Wawasan & Cerita"
-            headline="Wawasan & Cerita dari Dompet Digital"
+            headline="Wawasan & Cerita dari Dompet Garuda"
             subhead="Pelajari lebih dalam tentang teknologi di balik pembayaran offline."
           />
           <Link
@@ -32,7 +32,7 @@ export async function ArticlesTeaser() {
           </div>
         ) : (
           <div className="mt-12 rounded-2xl border border-dashed border-border p-12 text-center text-sm text-muted-foreground">
-            Artikel akan segera hadir. Nantikan wawasan seputar Dompet Digital.
+            Artikel akan segera hadir. Nantikan wawasan seputar Dompet Garuda.
           </div>
         )}
       </div>

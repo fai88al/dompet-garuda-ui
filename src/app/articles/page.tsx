@@ -3,9 +3,9 @@ import { getPublishedArticles } from "@/lib/api";
 import { ArticleCard } from "@/components/shared/article-card";
 import { SITE_URL } from "@/lib/site";
 
-const title = "Artikel — Dompet Digital";
+const title = "Artikel — Dompet Garuda";
 const description =
-  "Wawasan dan cerita seputar teknologi pembayaran offline Dompet Digital.";
+  "Wawasan dan cerita seputar teknologi pembayaran offline Dompet Garuda.";
 
 export const metadata: Metadata = {
   title,

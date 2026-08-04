@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
-import { NodeNetwork } from "@/components/shared/node-network";
 import { GrainOverlay } from "@/components/shared/grain-overlay";
 import { TintDriver } from "@/components/shared/tint-driver";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const manrope = Manrope({
   variable: "--font-display",
   subsets: ["latin"],
 });
@@ -18,9 +17,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "Dompet Digital — Transfer tanpa internet, aman tanpa ribet";
+const title = "Dompet Garuda — Transfer tanpa internet, aman tanpa ribet";
 const description =
-  "Dompet Digital memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.";
+  "Dompet Garuda memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    siteName: "Dompet Digital",
+    siteName: "Dompet Garuda",
     locale: "id_ID",
     type: "website",
   },
@@ -43,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
@@ -53,7 +52,6 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <NodeNetwork />
           <GrainOverlay />
           <TintDriver />
           <Nav />

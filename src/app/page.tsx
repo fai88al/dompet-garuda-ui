@@ -8,19 +8,19 @@ import { Footer } from "@/components/sections/footer";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Dompet Digital — Transfer tanpa internet, aman tanpa ribet",
+  title: "Dompet Garuda — Transfer tanpa internet, aman tanpa ribet",
   description:
-    "Dompet Digital memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.",
+    "Dompet Garuda memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali.",
   alternates: { canonical: SITE_URL },
 };
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Dompet Digital",
+  name: "Dompet Garuda",
   url: SITE_URL,
   description:
-    "Dompet Digital adalah perangkat pembayaran offline berbasis Bluetooth untuk pedagang dan pengguna Indonesia.",
+    "Dompet Garuda adalah perangkat pembayaran offline berbasis Bluetooth untuk pedagang dan pengguna Indonesia.",
 };
 
 export default function Home() {

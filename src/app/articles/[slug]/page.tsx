@@ -16,13 +16,13 @@ export async function generateMetadata({
   const article = await getArticleBySlug(slug);
 
   if (!article) {
-    return { title: "Artikel Tidak Ditemukan — Dompet Digital" };
+    return { title: "Artikel Tidak Ditemukan — Dompet Garuda" };
   }
 
   const description = excerpt(article.contentHtml, 160);
 
   return {
-    title: `${article.title} — Dompet Digital`,
+    title: `${article.title} — Dompet Garuda`,
     description,
     alternates: { canonical: `${SITE_URL}/articles/${article.slug}` },
     openGraph: {

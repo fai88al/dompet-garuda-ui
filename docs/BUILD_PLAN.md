@@ -1,4 +1,4 @@
-# BUILD_PLAN — Dompet Digital Landing Page (dompet-garuda-ui)
+# BUILD_PLAN — Dompet Garuda Landing Page (dompet-garuda-ui)
 
 Hand these prompts to Claude Code one at a time. Review and merge each PR before the next.
 This is a NEW repository — nothing exists yet.
@@ -10,7 +10,7 @@ This is a NEW repository — nothing exists yet.
 **Hero:**
 - Eyebrow: `✱ Bayar di mana saja, tanpa sinyal.`
 - Headline: **"Transfer tanpa internet, aman tanpa ribet."**
-- Subhead: "Dompet Digital memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali."
+- Subhead: "Dompet Garuda memungkinkan transaksi langsung antar perangkat lewat Bluetooth — bahkan saat tidak ada koneksi internet sama sekali."
 - CTA primary: `Pelajari Cara Kerja`
 - CTA secondary: `Baca Artikel Kami`
 
@@ -29,7 +29,7 @@ This is a NEW repository — nothing exists yet.
 - Body: "Setiap transaksi offline ditandatangani menggunakan Ed25519 — standar kriptografi yang sama dipakai dalam sistem keamanan modern. Setiap Rupiah tercatat dalam ledger yang tidak bisa diubah."
 
 **Articles teaser:**
-- Headline: "Wawasan & Cerita dari Dompet Digital"
+- Headline: "Wawasan & Cerita dari Dompet Garuda"
 - Subhead: "Pelajari lebih dalam tentang teknologi di balik pembayaran offline."
 
 **Footer:** Product / Resources / Company columns (fill in real links as pages exist),
@@ -95,7 +95,7 @@ Work on branch feat/scaffold, open a PR against main.
    NEXT_PUBLIC_API_URL=https://api.dompetgaruda.com
 
 8. Basic nav component (components/layout/nav.tsx) — logo
-   text "Dompet Digital", a few placeholder links, theme
+   text "Dompet Garuda", a few placeholder links, theme
    toggle, mobile hamburger using Sheet. This is a client
    component (needs state for mobile menu).
 
@@ -206,7 +206,7 @@ already has published content.
    - Server component, calls getPublishedArticles()
    - Grid of ArticleCard components (build this shared
      component: cover image, title, published date, excerpt)
-   - generateMetadata: title "Artikel — Dompet Digital",
+   - generateMetadata: title "Artikel — Dompet Garuda",
      appropriate description
 
 3. Single article page (app/articles/[slug]/page.tsx):

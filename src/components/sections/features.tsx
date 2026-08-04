@@ -1,24 +1,25 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/shared/section-heading";
 
 const features = [
   {
     title: "Berfungsi di Mana Saja",
     description: "Tidak butuh sinyal, tidak butuh WiFi. Transaksi tetap berjalan.",
-    // TODO: replace with generated asset — close-up of two devices held near each other, rural setting
-    gradient: "from-primary/60 via-primary/20 to-transparent",
+    image: "/images/offline_transaction.png",
+    alt: "Dua perangkat Dompet Garuda melakukan transaksi offline langsung tanpa sinyal",
   },
   {
     title: "Keamanan Tingkat Bank",
     description:
       "Setiap transaksi ditandatangani secara digital dan tidak bisa dipalsukan.",
-    // TODO: replace with generated asset — abstract geometric ledger/chain shapes, sage + sand tones
-    gradient: "from-accent/60 via-accent/20 to-transparent",
+    image: "/images/processor.png",
+    alt: "Chip prosesor keamanan di dalam perangkat Dompet Garuda yang menandatangani setiap transaksi",
   },
   {
     title: "Cepat & Sederhana",
     description: "Satu sentuhan, transfer selesai dalam hitungan detik.",
-    // TODO: replace with generated asset — hand holding device showing Cek Saldo balance screen
-    gradient: "from-primary/50 via-accent/20 to-transparent",
+    image: "/images/offline_qris.png",
+    alt: "Pemindaian kode QR offline menggunakan perangkat Dompet Garuda",
   },
 ];
 
@@ -32,13 +33,20 @@ export function Features() {
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {features.map(({ title, description, gradient }) => (
+          {features.map(({ title, description, image, alt }) => (
             <div
               key={title}
               className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-card"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-background/10" />
-              <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+              <Image
+                src={image}
+                alt={alt}
+                fill
+                sizes="(min-width: 640px) 33vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-2/3 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)] [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
               <div className="relative flex h-full flex-col justify-end p-6">
                 <h3 className="font-display text-xl text-foreground">
                   {title}

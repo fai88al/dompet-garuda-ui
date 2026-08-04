@@ -626,7 +626,7 @@ export function Hero() {
             Transfer tanpa internet, aman tanpa ribet.
           </h1>
           <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
-            Dompet Digital memungkinkan transaksi langsung antar perangkat
+            Dompet Garuda memungkinkan transaksi langsung antar perangkat
             lewat Bluetooth — bahkan saat tidak ada koneksi internet sama
             sekali.
           </p>

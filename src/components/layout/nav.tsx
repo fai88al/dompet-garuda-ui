@@ -26,7 +26,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-display text-lg font-semibold tracking-tight">
-          Dompet Digital
+          Dompet Garuda
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -55,7 +55,7 @@ export function Nav() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle className="font-display">Dompet Digital</SheetTitle>
+                <SheetTitle className="font-display">Dompet Garuda</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-1 px-4">
                 {links.map((link) => (

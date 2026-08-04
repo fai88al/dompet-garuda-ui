@@ -21,7 +21,7 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ fontSize: 64, fontWeight: 700, display: "flex" }}>
-          Dompet Digital
+          Dompet Garuda
         </div>
         <div style={{ fontSize: 28, color: "#9ca3af", marginTop: 20, display: "flex" }}>
           Transfer tanpa internet, aman tanpa ribet.

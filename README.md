@@ -1,6 +1,6 @@
 # dompet-garuda-ui
 
-Public marketing site for Dompet Digital. See `CLAUDE.md` for the full project
+Public marketing site for Dompet Garuda. See `CLAUDE.md` for the full project
 context and `docs/BUILD_PLAN.md` for the phased build plan.
 
 ## Development
@@ -17,7 +17,7 @@ This repo builds and pushes a Docker image to GHCR
 on every push to `main`, then SSHes into the VPS and runs
 `docker compose up -d landing`.
 
-Required repo secrets (same names as the other Dompet Digital repos):
+Required repo secrets (same names as the other Dompet Garuda repos):
 
 - `VPS_HOST`
 - `VPS_USER`

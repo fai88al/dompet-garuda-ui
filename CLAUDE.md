@@ -1,14 +1,14 @@
-# CLAUDE.md — Dompet Digital Landing Page
+# CLAUDE.md — Dompet Garuda Landing Page
 
 > Context file for Claude Code. Read this fully before generating or editing any code.
-> This is the **public marketing site** for Dompet Digital — a separate codebase from
+> This is the **public marketing site** for Dompet Garuda — a separate codebase from
 > both the Spring Boot backend and the backoffice admin panel.
 
 ---
 
 ## 1. What this project is
 
-The public-facing landing page for Dompet Digital, an offline-capable IoT payment device.
+The public-facing landing page for Dompet Garuda, an offline-capable IoT payment device.
 Deployed at `https://dompetgaruda.com` (and `https://www.dompetgaruda.com`).
 
 Unlike the backoffice (authenticated, not indexed), this site is **public and SEO-critical**.
@@ -122,7 +122,7 @@ fontFamily: {
 These are the specific generic-fintech-template tropes to actively avoid, agreed on with
 the human developer after reviewing reference designs:
 
-- **No floating glossy 3D bank/credit card renders.** Dompet Digital's product is a small
+- **No floating glossy 3D bank/credit card renders.** Dompet Garuda's product is a small
   handheld device, not a card — using card imagery misrepresents the product.
 - **No generic 3D chrome shield icon** for the security section. Ground security messaging
   in the actual mechanisms (Ed25519 signatures, double-entry ledger) rather than a stock
