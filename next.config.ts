@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "api.dompetgaruda.com",
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co.com",
+      },
     ],
   },
 };
