@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { GrainOverlay } from "@/components/shared/grain-overlay";
 import { TintDriver } from "@/components/shared/tint-driver";
+import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
+import { ScrollProgress } from "@/components/shared/scroll-progress";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -54,6 +56,8 @@ export default function RootLayout({
         >
           <GrainOverlay />
           <TintDriver />
+          <SmoothScrollProvider />
+          <ScrollProgress />
           <Nav />
           <div className="flex flex-1 flex-col pt-16">{children}</div>
         </ThemeProvider>

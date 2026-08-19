@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getPublishedArticles } from "@/lib/api";
 import { ArticleCard } from "@/components/shared/article-card";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Reveal } from "@/components/shared/reveal";
 
 export async function ArticlesTeaser() {
   const articles = await getPublishedArticles();
@@ -9,7 +10,7 @@ export async function ArticlesTeaser() {
 
   return (
     <section data-tint="sand" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             eyebrow="Wawasan & Cerita"
@@ -35,7 +36,7 @@ export async function ArticlesTeaser() {
             Artikel akan segera hadir. Nantikan wawasan seputar Dompet Garuda.
           </div>
         )}
-      </div>
+      </Reveal>
     </section>
   );
 }

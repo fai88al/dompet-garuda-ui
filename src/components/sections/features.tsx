@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Reveal } from "@/components/shared/reveal";
 
 const features = [
   {
@@ -26,7 +27,7 @@ const features = [
 export function Features() {
   return (
     <section data-tint="neutral" className="border-b border-border">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Keunggulan"
           headline="Didesain untuk kenyataan di lapangan."
@@ -58,7 +59,7 @@ export function Features() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

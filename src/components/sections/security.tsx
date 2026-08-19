@@ -1,10 +1,11 @@
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Reveal } from "@/components/shared/reveal";
 import Link from "next/link";
 
 export function Security() {
   return (
     <section id="keamanan" data-tint="sand" className="scroll-mt-16 border-b border-border">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 lg:px-8">
+      <Reveal className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
           <SectionHeading
             eyebrow="Keamanan"
@@ -71,7 +72,7 @@ export function Security() {
           <circle cx="130" cy="130" r="5" fill="var(--accent)" />
           <circle cx="270" cy="270" r="5" className="fill-current" />
         </svg>
-      </div>
+      </Reveal>
     </section>
   );
 }

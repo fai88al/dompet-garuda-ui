@@ -1,10 +1,7 @@
-"use client";
-
-import { useRef } from "react";
 import { Wallet, Send, QrCode } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { useGsapReveal } from "@/lib/motion";
+import { Reveal } from "@/components/shared/reveal";
 
 const steps = [
   {
@@ -26,16 +23,13 @@ const steps = [
 ];
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  useGsapReveal(sectionRef, { targets: "[data-reveal-card]" });
-
   return (
     <section
       id="cara-kerja"
       data-tint="sage"
       className="scroll-mt-16 border-b border-border"
     >
-      <div ref={sectionRef} className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Cara Kerja"
           headline="Tiga langkah, tanpa ribet."
@@ -43,7 +37,7 @@ export function HowItWorks() {
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {steps.map(({ icon: Icon, title, description }) => (
-            <Card key={title} data-reveal-card className="bg-card">
+            <Card key={title} className="bg-card">
               <CardHeader>
                 <div className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon className="size-5" />
@@ -56,7 +50,7 @@ export function HowItWorks() {
             </Card>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

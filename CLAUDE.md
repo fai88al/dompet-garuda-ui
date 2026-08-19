@@ -50,7 +50,82 @@ technical audience. Do not default to English copy anywhere on this site.
 
 ---
 
-## 3. Design system
+## 3. Design system — Mercury-inspired dark monochrome, sage accent
+
+> Reference: Mercury.com design language (styles.refero.design/style/3172cd4d-...).
+> We adopt the STRUCTURE and DISCIPLINE of this system — dark canvas, single
+> chromatic accent, flat borderless cards, pill controls, generous spacing,
+> restrained intermediate-weight type — but the accent color is Dompet Garuda's
+> own sage green, never Mercury's cobalt. This keeps the landing page visually
+> consistent with the already-shipped backoffice (also sage/sand).
+
+### Color — one accent, disciplined use
+
+**Dark mode (default):**
+- Canvas (page background): `#12140f`
+- Card / elevated surface (one step lighter than canvas — this is the ONLY
+  elevation mechanism, never a shadow): `#1a1f1b`
+- Secondary interactive surface (inline form backgrounds, subtle buttons):
+  `#222922`
+- Structural border (dividers between sections): `#2a3129`
+- Hairline border (ghost-button outline, input edge): `#3a453c`
+- Muted text: `#9ca3af`
+- Primary text: `#f1f1f1`
+- **Accent — the ONLY chromatic color in the entire system:** `#7a9e8a`
+  (sage). Reserved exclusively for the single primary action per section
+  (e.g. one CTA button, one active nav state). Never used decoratively,
+  never as an icon fill, never as a secondary-button color.
+- Pure white (text on filled accent buttons only): `#ffffff`
+
+**Light mode** (secondary experience, toggle only): canvas `#f1f1f1`, card
+`#ffffff`, accent `#5d7066`, text `#1a1a1a`, muted `#6b7280`.
+
+### Typography — intermediate weight, never bold
+
+Mercury's signature restraint is avoiding true bold (700+) entirely, using an
+intermediate weight instead. We approximate this with the fonts we have:
+
+- **Display/headings (Space Grotesk):** weight **500** (medium), NOT 700.
+  This is a deliberate downgrade from a typical bold hero headline — the
+  confidence comes from SIZE and letter-spacing, not weight.
+- **Body (Inter):** weight 400 for paragraphs, 500 for emphasis. Never 600+.
+- **Letter-spacing:** small positive tracking on display sizes
+  (0.01em–0.02em) — gives headlines an "architectural, wide-set" quality
+  rather than tight editorial compression.
+- **Line-height:** tight on display (1.1–1.15), generous on body (1.5).
+- Hero headline: `text-5xl md:text-7xl font-medium tracking-[0.01em]
+  leading-[1.1]` — not `font-bold`.
+
+### Shape — pills and flat cards, zero shadows
+
+- **Buttons, inputs, nav pills:** `rounded-full` (or `rounded-[32px]` /
+  `rounded-[40px]`) — every interactive control is a pill. Sharp corners
+  are reserved for structural elements only (rare in this design).
+- **Cards:** `rounded-xl` (12px), `p-8` (32px padding), background is the
+  card-surface color, **NO box-shadow anywhere in this codebase**.
+  Separation between card and canvas comes purely from the value
+  difference between `#12140f` and `#1a1f1b` — remove any `shadow-*`
+  Tailwind classes from existing components.
+
+### Spacing — generous, consistent rhythm
+
+- Section vertical padding: `py-24` (matches Mercury's 72px-ish rhythm,
+  rounded to Tailwind's scale)
+- Card padding: `p-8` (32px)
+- Page content max-width: `max-w-6xl` (~1200px, matches Mercury's
+  page-max-width token)
+- Gap between elements within a card/section: `gap-3` (12px) for tight
+  groups, `gap-8` for section-level groups
+
+### Component patterns (translate directly from Mercury's spec, sage not cobalt)
+
+- **Primary CTA button:** `bg-primary-dark text-onyx-canvas` (dark text on
+  the light sage — check contrast), `rounded-full`, `px-8 py-4`, no border,
+  no shadow, `font-medium`.
+- **Ghost/outline button:** `bg-transparent border border-ivory-text/60
+  text-ivory-text rounded-full px-6 py-3`. Never colored — ivory only.
+- **Nav pill links:** transparent, `rounded-full`, `px-5`, floats over the
+  hero, NO background until scroll (see §9 for scroll-triggered nav fill).
 
 ### Why dark-first
 The product story is "offline, no signal, works anywhere" — a darker, more premium palette
@@ -247,17 +322,64 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 
 ---
 
-## 9. Animation guidance (use sparingly — this was explicitly requested but must not overdo it)
+## 9. Motion and smooth scroll (revised)
 
-- **One hero moment**: a subtle fade+slide-up on the hero headline/subhead/CTA on page load
-  (Framer Motion, `initial`/`animate`, ~400-600ms, no bounce/spring excess).
-- **Scroll-triggered reveals**: sections fade+slide-up slightly as they enter the viewport
-  (Framer Motion `whileInView`, triggered once, not on every scroll pass).
-- **Do NOT** animate every card individually with staggered delays, add parallax scrolling,
-  add cursor-follow effects, or add more than one animation style per section. Restraint is
-  the goal — one or two deliberate motion moments beat animating everything.
-- **Respect `prefers-reduced-motion`** — Framer Motion handles this automatically in most
-  cases, but verify animations are disabled for users with that OS setting.
+This section replaces the prior more conservative animation guidance — we
+are explicitly adding a premium, Mercury-style smooth-scroll feel, but
+implemented carefully so it never compromises the SEO/performance mandate
+in §7.
+
+### Smooth scroll — Lenis, optimized
+
+- Add `lenis` (the modern successor to Locomotive Scroll) as the smooth
+  momentum-scroll engine.
+- Initialize it in a **client-only component**
+  (`components/layout/smooth-scroll-provider.tsx`), dynamically imported
+  with `ssr: false` so it never affects server-rendered HTML, initial
+  paint, or crawlability. This is a pure post-hydration enhancement.
+- **MUST check `window.matchMedia('(prefers-reduced-motion: reduce)')`
+  before initializing.** If the user has that OS setting, do NOT
+  initialize Lenis at all — fall back to native browser scroll entirely.
+  This is not optional.
+- Lenis config: `duration: 1.1`, `easing` a standard ease-out curve,
+  `smoothWheel: true`. Do not enable touch-device smoothing overrides —
+  native touch scroll feels better on mobile and Lenis's touch smoothing
+  can feel laggy; disable smooth scroll on touch, keep it desktop-only.
+
+### Scroll-triggered nav (the signature "modern" moment)
+
+- Nav bar is `fixed` top, starts fully transparent over the hero
+  (no background, no border).
+- On scroll past ~80px: nav transitions to `bg-canvas/80 backdrop-blur-md
+  border-b border-structural` — a frosted-glass solid fill. Use Framer
+  Motion or a simple scroll-listener + CSS transition (300ms) — whichever
+  is already idiomatic in the codebase.
+- This transition must be smooth, not an abrupt snap.
+
+### Scroll-triggered section reveals (refine existing pattern)
+
+- Every major section fades and slides up as it enters the viewport:
+  `initial={{ opacity: 0, y: 24 }}`, `whileInView={{ opacity: 1, y: 0 }}`,
+  `transition={{ duration: 0.6, ease: "easeOut" }}`, `viewport={{ once:
+  true }}`.
+- Apply this CONSISTENTLY to every section (hero already has its own
+  entrance; how-it-works, features, security, articles-teaser, footer
+  all get this same treatment) — consistency matters more than variety.
+
+### Optional — scroll progress indicator
+
+- A thin (2px) fixed bar at the very top of the viewport, filled with the
+  sage accent color, width driven by scroll progress (0–100%). Cheap,
+  genuinely reads as "modern product site." Use Framer Motion's
+  `useScroll` + `useSpring` for a smooth (not jumpy) fill.
+
+### Still forbidden (unchanged from before)
+
+- No parallax on photographic hero/feature images (§4 still applies —
+  keep imagery honest, not gimmicky).
+- No scroll-jacking or section-snapping — this is a content site with
+  articles meant to be read normally, not a single-viewport product demo.
+- No cursor-follow effects, no staggered per-card animation delays.
 
 ---
 

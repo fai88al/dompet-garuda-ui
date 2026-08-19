@@ -7,11 +7,11 @@ interface ContentPageProps {
 
 export function ContentPage({ eyebrow, title, subtitle, children }: ContentPageProps) {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8">
       <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
         {eyebrow}
       </p>
-      <h1 className="mt-3 font-display text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+      <h1 className="mt-3 font-display text-4xl font-medium leading-tight tracking-[0.01em] text-foreground sm:text-5xl">
         {title}
       </h1>
       {subtitle && (
