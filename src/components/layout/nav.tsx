@@ -15,14 +15,26 @@ const links = [
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+const SCROLL_THRESHOLD = 80;
+
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const panelId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -87,9 +99,15 @@ export function Nav() {
   const panelExit = prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -20 };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-border bg-background/80 backdrop-blur-md"
+          : "border-transparent bg-transparent backdrop-blur-none"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-display text-lg font-semibold tracking-tight">
+        <Link href="/" className="font-display text-lg font-medium tracking-tight">
           Dompet Garuda
         </Link>
 
@@ -145,7 +163,7 @@ export function Nav() {
               role="dialog"
               aria-modal="true"
               aria-label="Menu navigasi"
-              className="fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 shadow-lg backdrop-blur-md md:hidden"
+              className="fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 backdrop-blur-md md:hidden"
               initial={panelInitial}
               animate={{ opacity: 1, y: 0 }}
               exit={panelExit}
@@ -157,7 +175,7 @@ export function Nav() {
                     key={link.href}
                     href={link.href}
                     onClick={close}
-                    className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   >
                     {link.label}
                   </Link>

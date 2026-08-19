@@ -23,7 +23,7 @@ export default async function ArticlesPage() {
   const articles = await getPublishedArticles();
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
       <h1 className="font-display text-4xl text-foreground sm:text-5xl">
         Artikel
       </h1>

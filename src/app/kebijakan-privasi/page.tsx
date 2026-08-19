@@ -33,7 +33,7 @@ export default function KebijakanPrivasiPage() {
       title="Kebijakan Privasi"
       subtitle={`Terakhir diperbarui: ${LAST_UPDATED}`}
     >
-      <div className="not-prose mb-10 rounded-2xl border border-accent/40 bg-accent/10 p-4 text-sm text-foreground">
+      <div className="not-prose mb-10 rounded-2xl border border-hairline bg-secondary p-4 text-sm text-foreground">
         <strong>Catatan:</strong> Halaman ini masih berupa draf awal dan
         belum ditinjau secara hukum. Isinya belum dapat dijadikan acuan
         resmi sampai ditinjau dan disetujui oleh tim Dompet Garuda.

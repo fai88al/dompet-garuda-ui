@@ -16,7 +16,7 @@ export function SectionHeading({
       <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
         {eyebrow}
       </p>
-      <h2 className="mt-3 font-display text-3xl leading-tight tracking-tight text-foreground sm:text-4xl">
+      <h2 className="mt-3 font-display text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl">
         {headline}
       </h2>
       {subhead && (
