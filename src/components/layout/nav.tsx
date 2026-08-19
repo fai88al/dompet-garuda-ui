@@ -107,7 +107,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-display text-lg font-medium tracking-[0.01em]">
+        <Link href="/" className="font-display text-lg font-medium tracking-tight">
           Dompet Garuda
         </Link>
 

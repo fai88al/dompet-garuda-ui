@@ -12,7 +12,7 @@ export function Hero() {
           <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
             ✱ Bayar di mana saja, tanpa sinyal.
           </p>
-          <h1 className="mt-4 font-display text-5xl font-medium leading-[1.1] tracking-[0.01em] text-foreground md:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="mt-4 font-display text-5xl font-medium leading-[1.1] text-foreground md:text-6xl lg:text-7xl xl:text-8xl">
             Transfer tanpa internet, aman tanpa ribet.
           </h1>
           <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
@@ -30,7 +30,7 @@ export function Hero() {
             {chips.map((chip) => (
               <li
                 key={chip}
-                className="rounded-full border border-accent/40 px-3 py-1 text-xs font-medium text-muted-foreground"
+                className="rounded-full border border-hairline px-3 py-1 text-xs font-medium text-muted-foreground"
               >
                 {chip}
               </li>
@@ -38,7 +38,7 @@ export function Hero() {
           </ul>
         </Reveal>
 
-        <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-accent/30 bg-card/40 backdrop-blur-xl">
+        <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-hairline bg-card/40 backdrop-blur-xl">
           <Image
             src="/images/hero.png"
             alt="Perangkat Dompet Garuda digunakan untuk transaksi offline langsung antar perangkat"

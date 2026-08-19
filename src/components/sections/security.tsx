@@ -46,7 +46,7 @@ export function Security() {
             rx="20"
             className="stroke-current"
             strokeWidth="2"
-            fill="var(--accent)"
+            fill="var(--primary)"
             fillOpacity="0.15"
           />
           <rect
@@ -69,7 +69,7 @@ export function Security() {
             strokeWidth="2"
             strokeDasharray="4 6"
           />
-          <circle cx="130" cy="130" r="5" fill="var(--accent)" />
+          <circle cx="130" cy="130" r="5" fill="var(--primary)" />
           <circle cx="270" cy="270" r="5" className="fill-current" />
         </svg>
       </Reveal>

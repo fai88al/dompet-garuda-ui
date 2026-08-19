@@ -11,7 +11,7 @@ export function ContentPage({ eyebrow, title, subtitle, children }: ContentPageP
       <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
         {eyebrow}
       </p>
-      <h1 className="mt-3 font-display text-4xl font-medium leading-tight tracking-[0.01em] text-foreground sm:text-5xl">
+      <h1 className="mt-3 font-display text-4xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl">
         {title}
       </h1>
       {subtitle && (
