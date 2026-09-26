@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function Security() {
   return (
-    <section id="keamanan" data-tint="sand" className="scroll-mt-16 border-b border-border">
+    <section id="keamanan" className="scroll-mt-16 border-b border-border">
       <Reveal className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
           <SectionHeading
@@ -14,7 +14,7 @@ export function Security() {
           />
           <Link
             href="/articles"
-            className="mt-6 inline-block text-sm font-medium text-primary hover:text-primary-hover"
+            className="mt-6 inline-block text-sm font-bold text-primary hover:text-primary-hover"
           >
             Pelajari Lebih Lanjut →
           </Link>

@@ -1,61 +1,55 @@
-import Image from "next/image";
+import { ShieldCheck, Radio, Zap, Sparkles } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 
 const features = [
   {
-    title: "Berfungsi di Mana Saja",
-    description: "Tidak butuh sinyal, tidak butuh WiFi. Transaksi tetap berjalan.",
-    image: "/images/offline_transaction.png",
-    alt: "Dua perangkat Dompet Garuda melakukan transaksi offline langsung tanpa sinyal",
+    icon: ShieldCheck,
+    title: "Aman",
+    description: "Data Anda terlindungi dengan enkripsi end-to-end di setiap transaksi.",
   },
   {
-    title: "Keamanan Tingkat Bank",
-    description:
-      "Setiap transaksi ditandatangani secara digital dan tidak bisa dipalsukan.",
-    image: "/images/processor.png",
-    alt: "Chip prosesor keamanan di dalam perangkat Dompet Garuda yang menandatangani setiap transaksi",
+    icon: Radio,
+    title: "Terhubung",
+    description: "Kapan saja, di mana saja — perangkat Anda selalu siap terhubung.",
   },
   {
-    title: "Cepat & Sederhana",
-    description: "Satu sentuhan, transfer selesai dalam hitungan detik.",
-    image: "/images/offline_qris.png",
-    alt: "Pemindaian kode QR offline menggunakan perangkat Dompet Garuda",
+    icon: Zap,
+    title: "Cepat",
+    description: "Transaksi selesai tanpa delay, kapan pun Anda membutuhkannya.",
+  },
+  {
+    icon: Sparkles,
+    title: "Praktis",
+    description: "Satu perangkat untuk semua kebutuhan transaksi harian Anda.",
   },
 ];
 
 export function Features() {
   return (
-    <section data-tint="neutral" className="border-b border-border">
+    <section id="features" className="scroll-mt-16 border-b border-border">
       <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Keunggulan"
-          headline="Didesain untuk kenyataan di lapangan."
+          eyebrow="Mengapa Dompet Garuda"
+          headline="Dibangun untuk kehidupan yang selalu terhubung dan aman."
+          centered
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-3">
-          {features.map(({ title, description, image, alt }) => (
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-card"
+              className="shadow-soft hover:shadow-elevated group rounded-xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40"
             >
-              <Image
-                src={image}
-                alt={alt}
-                fill
-                sizes="(min-width: 640px) 33vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-2/3 backdrop-blur-md [mask-image:linear-gradient(to_top,black,transparent)] [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
-              <div className="relative flex h-full flex-col justify-end p-6">
-                <h3 className="font-display text-xl text-foreground">
-                  {title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {description}
-                </p>
+              <div className="flex size-12 items-center justify-center rounded-2xl bg-secondary">
+                <Icon className="size-5 text-primary" />
               </div>
+              <h3 className="mt-4.5 font-display text-[19px] font-bold text-foreground">
+                {title}
+              </h3>
+              <p className="mt-2 text-[14.5px] leading-[1.55] text-muted-foreground">
+                {description}
+              </p>
             </div>
           ))}
         </div>

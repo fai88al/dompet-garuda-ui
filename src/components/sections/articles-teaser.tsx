@@ -9,33 +9,34 @@ export async function ArticlesTeaser() {
   const latest = articles.slice(0, 3);
 
   return (
-    <section data-tint="sand" className="border-b border-border">
+    <section id="articles" className="scroll-mt-16 border-b border-border">
       <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading
-            eyebrow="Wawasan & Cerita"
-            headline="Wawasan & Cerita dari Dompet Garuda"
-            subhead="Pelajari lebih dalam tentang teknologi di balik pembayaran offline."
-          />
-          <Link
-            href="/articles"
-            className="text-sm font-medium text-primary hover:text-primary-hover"
-          >
-            Lihat Semua Artikel →
-          </Link>
-        </div>
+        <SectionHeading
+          eyebrow="Dari Blog Kami"
+          headline="Artikel & wawasan terbaru"
+          centered
+        />
 
         {latest.length > 0 ? (
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-3">
             {latest.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
           </div>
         ) : (
-          <div className="mt-12 rounded-2xl border border-dashed border-border p-12 text-center text-sm text-muted-foreground">
+          <div className="mt-14 rounded-2xl border border-dashed border-border p-12 text-center text-sm text-muted-foreground">
             Artikel akan segera hadir. Nantikan wawasan seputar Dompet Garuda.
           </div>
         )}
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/articles"
+            className="text-sm font-bold text-primary hover:text-primary-hover"
+          >
+            Lihat Semua Artikel →
+          </Link>
+        </div>
       </Reveal>
     </section>
   );

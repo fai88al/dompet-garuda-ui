@@ -16,14 +16,14 @@ export default function OpengraphImage() {
           justifyContent: "center",
           alignItems: "center",
           background:
-            "linear-gradient(135deg, #12140f 0%, #1a1f1b 60%, #2a3129 100%)",
-          color: "#f1f1f1",
+            "linear-gradient(135deg, #dff2e6 0%, #f7fbf6 60%, #ffffff 100%)",
+          color: "#233b2e",
         }}
       >
         <div style={{ fontSize: 64, fontWeight: 700, display: "flex" }}>
           Dompet Garuda
         </div>
-        <div style={{ fontSize: 28, color: "#9ca3af", marginTop: 20, display: "flex" }}>
+        <div style={{ fontSize: 28, color: "#5c7a6c", marginTop: 20, display: "flex" }}>
           Transfer tanpa internet, aman tanpa ribet.
         </div>
       </div>

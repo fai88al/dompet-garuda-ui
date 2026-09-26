@@ -7,7 +7,7 @@ export function ArticleCard({ article }: { article: Article }) {
   return (
     <Link
       href={`/articles/${article.slug}`}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50"
+      className="shadow-soft hover:shadow-elevated group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40"
     >
       <div className="relative aspect-video w-full overflow-hidden bg-muted">
         {article.coverImageUrl && (
@@ -20,16 +20,19 @@ export function ArticleCard({ article }: { article: Article }) {
           />
         )}
       </div>
-      <div className="p-5">
-        <p className="text-xs text-muted-foreground">
+      <div className="flex flex-col gap-2 p-5.5">
+        <p className="text-xs font-bold text-muted-foreground">
           {formatDate(article.publishedAt)}
         </p>
-        <h3 className="mt-2 font-display text-lg text-foreground group-hover:text-primary">
+        <h3 className="font-display text-[17px] leading-[1.35] font-extrabold text-foreground">
           {article.title}
         </h3>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="text-sm leading-[1.55] text-muted-foreground">
           {excerpt(article.contentHtml)}
         </p>
+        <span className="mt-1.5 text-[13.5px] font-bold text-primary">
+          Baca selengkapnya →
+        </span>
       </div>
     </Link>
   );
