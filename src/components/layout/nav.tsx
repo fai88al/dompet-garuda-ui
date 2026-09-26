@@ -4,9 +4,9 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const links = [
+  { href: "/#features", label: "Fitur" },
   { href: "/#cara-kerja", label: "Cara Kerja" },
   { href: "/#keamanan", label: "Keamanan" },
   { href: "/articles", label: "Artikel" },
@@ -100,14 +100,12 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "border-border bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-transparent backdrop-blur-none"
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md transition-all duration-300 ${
+        scrolled ? "shadow-soft" : ""
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-display text-lg font-medium tracking-tight">
+        <Link href="/" className="font-display text-lg font-bold tracking-tight text-foreground">
           Dompet Garuda
         </Link>
 
@@ -116,19 +114,14 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[13.5px] font-semibold text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle />
-        </div>
-
         <div className="flex items-center gap-1 md:hidden">
-          <ThemeToggle />
           <Button
             ref={triggerRef}
             variant="ghost"

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Manrope, Inter, Instrument_Serif } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Nav } from "@/components/layout/nav";
 import { GrainOverlay } from "@/components/shared/grain-overlay";
-import { TintDriver } from "@/components/shared/tint-driver";
 import { SmoothScrollProvider } from "@/components/layout/smooth-scroll-provider";
 import { ScrollProgressBar } from "@/components/layout/scroll-progress-bar";
 import { SITE_URL } from "@/lib/site";
@@ -16,6 +15,12 @@ const manrope = Manrope({
 
 const inter = Inter({
   variable: "--font-body",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif-display",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -44,18 +49,17 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${manrope.variable} ${inter.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
         >
           <GrainOverlay />
-          <TintDriver />
           <SmoothScrollProvider />
           <ScrollProgressBar />
           <Nav />

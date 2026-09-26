@@ -8,10 +8,10 @@ interface ContentPageProps {
 export function ContentPage({ eyebrow, title, subtitle, children }: ContentPageProps) {
   return (
     <main className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8">
-      <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
+      <p className="text-[13px] font-extrabold tracking-[0.12em] text-primary uppercase">
         {eyebrow}
       </p>
-      <h1 className="mt-3 font-display text-4xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl">
+      <h1 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
         {title}
       </h1>
       {subtitle && (

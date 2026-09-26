@@ -1,54 +1,80 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/shared/reveal";
+import { HeroBackground, DeviceStage } from "@/components/sections/hero-scene";
 
-const chips = ["Bluetooth Connection", "Ed25519 Signed", "Tanpa Perlu Sinyal"];
+const trustBadges = [
+  { label: "Aman", shapeClassName: "rounded-[3px_3px_8px_8px] border-2 border-primary" },
+  { label: "Terhubung", shapeClassName: "rounded-full border-2 border-primary" },
+  { label: "Cepat", shapeClassName: "-skew-x-12 rounded-[2px] bg-primary" },
+  { label: "Praktis", shapeClassName: "rounded-[50%_50%_50%_4px] -rotate-45 bg-primary" },
+];
 
 export function Hero() {
   return (
-    <section data-tint="sage" className="border-b border-border">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 md:grid-cols-2 lg:px-8">
-        <Reveal>
-          <p className="text-sm font-medium tracking-wide text-accent-hover dark:text-accent">
-            ✱ Bayar di mana saja, tanpa sinyal.
-          </p>
-          <h1 className="mt-4 font-display text-5xl font-medium leading-[1.1] text-foreground md:text-6xl lg:text-7xl xl:text-8xl">
-            Transfer tanpa internet, aman tanpa ribet.
+    <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden px-4 py-10 sm:px-6 lg:px-8">
+      <HeroBackground />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-2">
+        <div className="dg-motion flex min-w-0 flex-col gap-5" style={{ animation: "dg-rise 0.7s ease both" }}>
+          <h1 className="font-serif-display text-[clamp(46px,6.2vw,76px)] leading-[1.04] tracking-[-0.01em] text-foreground">
+            Dompet pintar
+            <br />
+            untuk masa depan
+            <br />
+            <span className="text-primary">yang lebih cerdas.</span>
           </h1>
-          <p className="mt-6 max-w-md text-base text-muted-foreground sm:text-lg">
-            Dompet Garuda memungkinkan transaksi langsung antar perangkat
-            lewat Bluetooth — bahkan saat tidak ada koneksi internet sama
-            sekali.
+          <p
+            className="dg-motion max-w-[480px] text-[clamp(16px,1.6vw,19px)] leading-[1.6] text-muted-foreground"
+            style={{ animation: "dg-rise 0.7s ease 0.1s both" }}
+          >
+            Dompet Garuda menghubungkan dompet fisik Anda ke dunia digital —
+            transfer, scan QR, dan cek saldo langsung dari perangkat, aman dan
+            terhubung kapan saja.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg">Pelajari Cara Kerja</Button>
-            <Button size="lg" variant="outline">
-              Baca Artikel Kami
+          <div
+            className="dg-motion mt-1 flex flex-wrap gap-3.5"
+            style={{ animation: "dg-rise 0.7s ease 0.2s both" }}
+          >
+            <Button
+              size="lg"
+              className="shadow-button hover:shadow-button-lg h-auto rounded-[14px] px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5 hover:scale-[1.03]"
+              render={<a href="#cta" />}
+              nativeButton={false}
+            >
+              Dapatkan Dompet Garuda
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-auto rounded-[14px] border-hairline px-7 py-3.5 text-[15px] font-bold transition-all hover:-translate-y-0.5 hover:scale-[1.03] hover:border-primary/50"
+              render={<a href="#cara-kerja" />}
+              nativeButton={false}
+            >
+              Lihat cara kerjanya
             </Button>
           </div>
-          <ul className="mt-8 flex flex-wrap gap-2">
-            {chips.map((chip) => (
-              <li
-                key={chip}
-                className="rounded-full border border-hairline px-3 py-1 text-xs font-medium text-muted-foreground"
-              >
-                {chip}
-              </li>
+          <div
+            className="dg-motion mt-2 flex flex-wrap gap-4 sm:gap-8"
+            style={{ animation: "dg-rise 0.7s ease 0.3s both" }}
+          >
+            {trustBadges.map((badge) => (
+              <div key={badge.label} className="flex items-center gap-2.5">
+                <span className={`size-[15px] shrink-0 ${badge.shapeClassName}`} />
+                <span className="text-[13px] font-bold text-muted-foreground">
+                  {badge.label}
+                </span>
+              </div>
             ))}
-          </ul>
-        </Reveal>
-
-        <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-hairline bg-card/40 backdrop-blur-xl">
-          <Image
-            src="/images/hero.png"
-            alt="Perangkat Dompet Garuda digunakan untuk transaksi offline langsung antar perangkat"
-            fill
-            priority
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent mix-blend-overlay" />
+          </div>
         </div>
+
+        <div className="min-w-0" style={{ perspective: "1400px" }}>
+          <DeviceStage />
+        </div>
+      </div>
+
+      <div className="absolute bottom-[22px] left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1.5 text-[11px] font-bold tracking-[0.14em] text-muted-foreground uppercase">
+        Gulir
+        <div className="h-[26px] w-px bg-gradient-to-b from-primary to-transparent" />
       </div>
     </section>
   );

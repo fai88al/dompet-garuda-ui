@@ -4,6 +4,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Features } from "@/components/sections/features";
 import { Security } from "@/components/sections/security";
 import { ArticlesTeaser } from "@/components/sections/articles-teaser";
+import { Cta } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { SITE_URL } from "@/lib/site";
 
@@ -33,10 +34,11 @@ export default function Home() {
         }}
       />
       <Hero />
-      <HowItWorks />
       <Features />
+      <HowItWorks />
       <Security />
       <ArticlesTeaser />
+      <Cta />
       <Footer />
     </main>
   );

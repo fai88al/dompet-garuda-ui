@@ -11,6 +11,7 @@
   --font-sans: var(--font-body);
   --font-body: var(--font-body);
   --font-display: var(--font-display);
+  --font-serif-display: var(--font-serif-display);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -55,44 +56,45 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Light mode — secondary experience, toggled via theme-toggle. See CLAUDE.md §3. */
+/* Light mode — DEFAULT theme. Mint/ivory palette per the 3D landing-page
+   design handoff (Instrument Serif hero, sage-green accent, soft shadows). */
 :root {
-  --background: #f1f1f1;
-  --foreground: #1a1a1a;
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: #5d7066;
-  --primary-hover: #4a5c53;
-  --primary-foreground: #f1f1f1;
-  --secondary: #e5e7eb;
-  --secondary-foreground: #1a1a1a;
-  --muted: #e5e7eb;
-  --muted-foreground: #6b7280;
-  --accent: #d9c6b0;
-  --accent-hover: #cdb598;
-  --accent-foreground: #1a1a1a;
+  --background: oklch(0.985 0.012 130);
+  --foreground: oklch(0.22 0.06 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.06 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.06 160);
+  --primary: oklch(0.5 0.13 155);
+  --primary-hover: oklch(0.4 0.14 155);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.05 155);
+  --secondary-foreground: oklch(0.24 0.06 160);
+  --muted: oklch(0.96 0.015 140);
+  --muted-foreground: oklch(0.44 0.03 160);
+  --accent: oklch(0.94 0.05 155);
+  --accent-hover: oklch(0.9 0.06 155);
+  --accent-foreground: oklch(0.3 0.09 158);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e5e7eb;
-  --border-hairline: #d1d5db;
-  --input: #e5e7eb;
-  --ring: #5d7066;
+  --border: oklch(0.91 0.02 140);
+  --border-hairline: oklch(0.88 0.02 140);
+  --input: oklch(0.92 0.02 140);
+  --ring: oklch(0.5 0.13 155);
   --tint: 0;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #5d7066;
-  --sidebar-primary-foreground: #f1f1f1;
-  --sidebar-accent: #d9c6b0;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e5e7eb;
-  --sidebar-ring: #5d7066;
+  --radius: 0.875rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.22 0.06 160);
+  --sidebar-primary: oklch(0.5 0.13 155);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.94 0.05 155);
+  --sidebar-accent-foreground: oklch(0.3 0.09 158);
+  --sidebar-border: oklch(0.91 0.02 140);
+  --sidebar-ring: oklch(0.5 0.13 155);
 }
 
 /* Dark mode — DEFAULT theme. "Offline, no signal, works anywhere" premium palette. */
@@ -142,5 +144,99 @@
   }
   html {
     @apply font-body;
+  }
+}
+
+/* Motion + shadow tokens from the 3D landing-page design handoff. */
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 20px 40px -28px oklch(0.3 0.05 160 / 0.3);
+  }
+  .shadow-elevated {
+    box-shadow: 0 28px 48px -20px oklch(0.3 0.05 160 / 0.35);
+  }
+  .shadow-button {
+    box-shadow: 0 16px 32px -12px oklch(0.5 0.13 155 / 0.55);
+  }
+  .shadow-button-lg {
+    box-shadow: 0 22px 40px -12px oklch(0.5 0.13 155 / 0.65);
+  }
+  .shadow-chip {
+    box-shadow: 0 14px 30px -10px oklch(0.3 0.05 160 / 0.25);
+  }
+  .shadow-step {
+    box-shadow: 0 14px 26px -10px oklch(0.5 0.13 155 / 0.55);
+  }
+  .shadow-device {
+    filter: drop-shadow(0 40px 60px oklch(0.3 0.08 160 / 0.35));
+  }
+}
+
+@keyframes dg-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+@keyframes dg-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dg-spin-rev {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes dg-shine {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
+@keyframes dg-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-16px, 14px);
+  }
+}
+@keyframes dg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dg-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-motion {
+    animation: none !important;
   }
 }
