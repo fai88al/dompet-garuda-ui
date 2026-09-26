@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/shared/reveal";
 
@@ -34,7 +35,14 @@ export function Footer() {
     <footer>
       <Reveal className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 flex items-center gap-3 sm:col-span-1">
+            <Image
+              src="/images/logo.png"
+              alt="Dompet Garuda"
+              width={821}
+              height={861}
+              className="h-11 w-auto object-contain"
+            />
             <span className="font-display text-lg font-bold tracking-tight text-foreground">
               Dompet Garuda
             </span>
