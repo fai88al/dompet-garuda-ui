@@ -1,25 +1,25 @@
-import { ShieldCheck, Radio, Zap, Sparkles } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { TrustIcon, type TrustShape } from "@/components/shared/trust-icon";
 
-const features = [
+const features: { shape: TrustShape; title: string; description: string }[] = [
   {
-    icon: ShieldCheck,
+    shape: "aman",
     title: "Aman",
     description: "Data Anda terlindungi dengan enkripsi end-to-end di setiap transaksi.",
   },
   {
-    icon: Radio,
+    shape: "terhubung",
     title: "Terhubung",
     description: "Kapan saja, di mana saja — perangkat Anda selalu siap terhubung.",
   },
   {
-    icon: Zap,
+    shape: "cepat",
     title: "Cepat",
     description: "Transaksi selesai tanpa delay, kapan pun Anda membutuhkannya.",
   },
   {
-    icon: Sparkles,
+    shape: "praktis",
     title: "Praktis",
     description: "Satu perangkat untuk semua kebutuhan transaksi harian Anda.",
   },
@@ -36,13 +36,13 @@ export function Features() {
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map(({ icon: Icon, title, description }) => (
+          {features.map(({ shape, title, description }) => (
             <div
               key={title}
               className="shadow-soft hover:shadow-elevated group rounded-xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-2 hover:border-primary/40"
             >
               <div className="flex size-12 items-center justify-center rounded-2xl bg-secondary">
-                <Icon className="size-5 text-primary" />
+                <TrustIcon shape={shape} className="size-4" />
               </div>
               <h3 className="mt-4.5 font-display text-[19px] font-bold text-foreground">
                 {title}

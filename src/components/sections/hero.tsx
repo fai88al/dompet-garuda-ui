@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { HeroBackground, DeviceStage } from "@/components/sections/hero-scene";
+import { TrustIcon, type TrustShape } from "@/components/shared/trust-icon";
 
-const trustBadges = [
-  { label: "Aman", shapeClassName: "rounded-[3px_3px_8px_8px] border-2 border-primary" },
-  { label: "Terhubung", shapeClassName: "rounded-full border-2 border-primary" },
-  { label: "Cepat", shapeClassName: "-skew-x-12 rounded-[2px] bg-primary" },
-  { label: "Praktis", shapeClassName: "rounded-[50%_50%_50%_4px] -rotate-45 bg-primary" },
+const trustBadges: { label: string; shape: TrustShape }[] = [
+  { label: "Aman", shape: "aman" },
+  { label: "Terhubung", shape: "terhubung" },
+  { label: "Cepat", shape: "cepat" },
+  { label: "Praktis", shape: "praktis" },
 ];
 
 export function Hero() {
@@ -58,7 +59,7 @@ export function Hero() {
           >
             {trustBadges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-2.5">
-                <span className={`size-[15px] shrink-0 ${badge.shapeClassName}`} />
+                <TrustIcon shape={badge.shape} className="size-[15px] shrink-0" />
                 <span className="text-[13px] font-bold text-muted-foreground">
                   {badge.label}
                 </span>
